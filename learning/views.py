@@ -33,7 +33,7 @@ from .models import HomeNav, carousel_img, carditems, content_image, footer_cont
 #     homehero = hero.objects.all()
 def homepage(request):
     nav_url = f"http://127.0.0.1:8000/api/getnav/"
-    nav_response = requests.get(nav_url)
+#    nav_response = requests.get(nav_url)
     nav_items = HomeNav.objects.filter(parent_category=None).order_by('id')
     crlimg=carousel_img.objects.all()
     card=carditems.objects.all()
@@ -48,7 +48,7 @@ def homepage(request):
 
 
 
-    return render(request,'homepage.html',{'kl':kl,'links':links,'services':services,'contact_info':contact_info,'social':social,'nav_items':nav_items,'nav_response':nav_response,'crlimg':crlimg,'card':card,'diver':diver,'homehero':homehero,'services': services})
+    return render(request,'homepage.html',{'kl':kl,'links':links,'services':services,'contact_info':contact_info,'social':social,'nav_items':nav_items,'crlimg':crlimg,'card':card,'diver':diver,'homehero':homehero,'services': services})
 
 
 
